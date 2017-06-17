@@ -43,7 +43,7 @@ module.exports = {
       },
       {
         test: /\.(gif|png|jpe?g|eot|woff|ttf|svg|pdf)$/,
-        loader: 'file-loader',
+        loader: 'base64-inline-loader',
       },
     ]
   },
