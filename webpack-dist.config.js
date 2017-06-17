@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
 const DefinePlugin = require('webpack/lib/DefinePlugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const EndWebpackPlugin = require('end-webpack-plugin');
 const { WebPlugin } = require('web-webpack-plugin');
 const ghpages = require('gh-pages');
@@ -23,12 +24,22 @@ module.exports = {
     rules: [
       {
         test: /\.scss$/,
-        loaders: ['style-loader', 'css-loader?minimize', 'sass-loader'],
+        // 提取出css
+        loaders: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          // 压缩css
+          use: ['css-loader?minimize', 'sass-loader']
+        }),
         include: path.resolve(__dirname, 'src')
       },
       {
         test: /\.css$/,
-        loaders: ['style-loader', 'css-loader?minimize'],
+        // 提取出css
+        loaders: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          // 压缩css
+          use: ['css-loader?minimize'],
+        }),
       },
       {
         test: /\.(gif|png|jpe?g|eot|woff|ttf|svg|pdf)$/,
@@ -65,6 +76,10 @@ module.exports = {
       template: './src/index.html',
       filename: 'index.html',
       requires: ['main'],
+    }),
+    new ExtractTextPlugin({
+      filename: '[name]_[contenthash].css',
+      allChunks: true,
     }),
     new EndWebpackPlugin(() => {
       ghpages.publish(outputPath, { dotfiles: true }, (err) => {
