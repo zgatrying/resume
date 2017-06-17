@@ -1,0 +1,19 @@
+{
+  "scripts": {
+    "dev": "webpack-dev-server --open",
+    "pub": "NODE_ENV=production webpack --config webpack-dist.config.js && rm -rf .public"
+  },
+  "devDependencies": {
+    "compass-mixins": "^0.12.10",
+    "css-loader": "^0.28.2",
+    "end-webpack-plugin": "^1.0.0",
+    "file-loader": "^0.11.1",
+    "gh-pages": "^1.0.0",
+    "node-sass": "^4.5.3",
+    "sass-loader": "^6.0.5",
+    "style-loader": "^0.18.0",
+    "web-webpack-plugin": "^1.5.8",
+    "webpack": "^2.6.1",
+    "webpack-dev-server": "^2.4.5"
+  }
+}
