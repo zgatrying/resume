@@ -75,7 +75,6 @@ module.exports = {
     new WebPlugin({
       template: './src/index.html',
       filename: 'index.html',
-      requires: ['main'],
     }),
     new ExtractTextPlugin({
       filename: '[name]_[contenthash].css',
