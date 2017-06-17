@@ -4,6 +4,7 @@
 - 支持部署到ghpages，可在线浏览
 
 ## 使用
+0. fork本项目后再clone到本地修改
 1. 进入项目目录执行`npm i`安装依赖
 2. 执行`npm dev`开始开发
 3. 修改完后执行`npm pub`发布到ghpages
