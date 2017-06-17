@@ -81,6 +81,7 @@ module.exports = {
       allChunks: true,
     }),
     new EndWebpackPlugin(() => {
+      fs.writeFileSync(path.resolve(outputPath, 'CNAME'), 'wuhaolin.cn');
       ghpages.publish(outputPath, { dotfiles: true }, (err) => {
         if (err) {
           console.error('push doc to gh-pages fail');
