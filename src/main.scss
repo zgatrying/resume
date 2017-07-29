@@ -7,6 +7,7 @@ $font-family: 'Helvetica Neue', Helvetica, Arial, "Microsoft YaHei", sans-serif;
 
 * {
   @include box-sizing(border-box);
+  user-select: none;
 }
 
 body {
@@ -44,12 +45,27 @@ a {
   }
 }
 
+.download-pdf {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  color: #bbb;
+  margin-left: -500px;
+  font-size: 12px;
+  text-align: right;
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
+  @media print {
+    display: none;
+  }
+}
+
 .content {
   position: relative;
   width: 1024px;
   margin: 50px auto;
   @include border-radius(5px);
-  @include box-shadow(0 0 15px #c0c0c0);
   background-color: #fff;
   overflow: hidden;
   @media screen and (max-width: 1024px) {
@@ -67,6 +83,10 @@ a {
   overflow: hidden;
   @media screen and (max-width: 720px) {
     padding: 25px 30px;
+  }
+  @media print {
+    color: #000;
+    background-color: #fff;
   }
   .title {
     width: 100%;
@@ -341,7 +361,7 @@ footer {
       margin-top: 25px;
     }
   }
-  &.print-footer {
+  @media print {
     display: none;
   }
 }

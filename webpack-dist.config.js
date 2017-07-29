@@ -1,11 +1,25 @@
 const fs = require('fs');
 const path = require('path');
+const { execSync, spawnSync } = require('child_process');
+const findChrome = require('chrome-finder');
 const UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
 const DefinePlugin = require('webpack/lib/DefinePlugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const EndWebpackPlugin = require('end-webpack-plugin');
 const { WebPlugin } = require('web-webpack-plugin');
 const ghpages = require('gh-pages');
+
+function publishGhPages() {
+  return new Promise((resolve, reject) => {
+    ghpages.publish(outputPath, { dotfiles: true }, (err) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve();
+      }
+    })
+  });
+}
 
 const outputPath = path.resolve(__dirname, '.public');
 module.exports = {
@@ -28,7 +42,7 @@ module.exports = {
         loaders: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           // 压缩css
-          use: ['css-loader?minimize', 'sass-loader']
+          use: ['css-loader?minimize', 'postcss-loader', 'sass-loader']
         }),
         include: path.resolve(__dirname, 'src')
       },
@@ -38,7 +52,7 @@ module.exports = {
         loaders: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           // 压缩css
-          use: ['css-loader?minimize'],
+          use: ['css-loader?minimize', 'postcss-loader'],
         }),
       },
       {
@@ -80,15 +94,12 @@ module.exports = {
       filename: '[name]_[contenthash].css',
       allChunks: true,
     }),
-    new EndWebpackPlugin(() => {
+    new EndWebpackPlugin(async () => {
       fs.writeFileSync(path.resolve(outputPath, 'CNAME'), 'wuhaolin.cn');
-      ghpages.publish(outputPath, { dotfiles: true }, (err) => {
-        if (err) {
-          console.error('push doc to gh-pages fail');
-        } else {
-          console.error('push doc to gh-pages succ');
-        }
-      })
+      await publishGhPages();
+      const chromePath = findChrome();
+      spawnSync(chromePath, ['--headless', '--disable-gpu', `--print-to-pdf=${path.resolve(outputPath, 'resume.pdf')}`, 'http://wuhaolin.cn']);
+      await publishGhPages();
     }),
   ]
 };
