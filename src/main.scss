@@ -43,6 +43,9 @@ a {
   @media screen and (max-width: 1024px) {
     display: none;
   }
+  @media print {
+    display: none;
+  }
 }
 
 .download-pdf {
@@ -351,8 +354,9 @@ a {
   }
 }
 
-footer {
+.github-footer {
   text-align: center;
+  
   .footer-link {
     display: inline-block;
     color: $color-gray;
@@ -361,6 +365,7 @@ footer {
       margin-top: 25px;
     }
   }
+
   @media print {
     display: none;
   }
