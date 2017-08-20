@@ -1,4 +1,3 @@
-const fs = require('fs');
 const path = require('path');
 const { WebPlugin } = require('web-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
