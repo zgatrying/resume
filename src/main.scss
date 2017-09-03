@@ -172,6 +172,9 @@ a {
         }
         & > a {
           color: #fff;
+          @media print {
+            color: #000;
+          }
           font-family: "Lucida Grande", "Hiragino Sans GB", "Hiragino Sans GB W3", $font-family;
           font-size: 14px;
           line-height: 22px;
@@ -356,7 +359,7 @@ a {
 
 .github-footer {
   text-align: center;
-  
+
   .footer-link {
     display: inline-block;
     color: $color-gray;
