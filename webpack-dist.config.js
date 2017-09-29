@@ -26,7 +26,7 @@ module.exports = {
   output: {
     path: outputPath,
     publicPath: '',
-    filename: '[name]_[chunkhash].js',
+    filename: '[name]_[chunkhash:8].js',
   },
   resolve: {
     // 加快搜索速度
@@ -91,7 +91,7 @@ module.exports = {
       filename: 'index.html',
     }),
     new ExtractTextPlugin({
-      filename: '[name]_[contenthash].css',
+      filename: '[name]_[contenthash:8].css',
       allChunks: true,
     }),
     new EndWebpackPlugin(async () => {
