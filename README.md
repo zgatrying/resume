@@ -4,6 +4,10 @@
 - 支持部署到ghpages，可在线浏览
 - 自动生成 PDF，全自动化流程
 
+<a target='_blank' rel='nofollow' href='https://app.codesponsor.io/link/3bvxELAxnq8r4wheFyRkED8U/gwuhaolin/resume'>
+  <img alt='Sponsor' width='888' height='68' src='https://app.codesponsor.io/embed/3bvxELAxnq8r4wheFyRkED8U/gwuhaolin/resume.svg' />
+</a>
+
 ## 使用
 1. fork本项目后再clone到本地修改
 2. 进入项目目录执行`npm i`安装依赖
