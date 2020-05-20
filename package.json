@@ -1,22 +1,23 @@
 {
   "scripts": {
     "dev": "webpack-dev-server --open --hot",
-    "pub": "NODE_ENV=production webpack --config webpack-dist.config.js && rm -rf .public"
+    "build": "NODE_ENV=production webpack --config webpack-dist.config.js -p"
   },
   "devDependencies": {
     "autoprefixer": "^9.8.0",
     "chrome-finder": "^1.0.7",
     "compass-mixins": "^0.12.10",
-    "css-loader": "^0.28.5",
-    "end-webpack-plugin": "^1.0.0",
-    "extract-text-webpack-plugin": "^3.0.0",
-    "gh-pages": "^1.0.0",
-    "node-sass": "^4.5.3",
-    "postcss-loader": "^2.0.6",
-    "sass-loader": "^6.0.5",
-    "style-loader": "^0.18.0",
-    "web-webpack-plugin": "^1.9.3",
-    "webpack": "^3.5.5",
-    "webpack-dev-server": "^2.7.1"
+    "css-loader": "^3.5.3",
+    "end-webpack-plugin": "^4.0.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.14.1",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.2.1",
+    "web-webpack-plugin": "^4.6.7",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0"
   }
 }

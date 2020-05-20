@@ -1,7 +1,6 @@
 const path = require('path');
 const { WebPlugin } = require('web-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   output: {
@@ -19,19 +18,8 @@ module.exports = {
       {
         test: /\.scss$/,
         // 提取出css
-        loaders: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: ['css-loader', 'sass-loader']
-        }),
+        loaders: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
         include: path.resolve(__dirname, 'src')
-      },
-      {
-        test: /\.css$/,
-        // 提取出css
-        loaders: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: ['css-loader'],
-        }),
       },
       {
         test: /\.(gif|png|jpe?g|eot|woff|ttf|svg|pdf)$/,
@@ -47,9 +35,8 @@ module.exports = {
       template: './src/index.html',
       filename: 'index.html',
     }),
-    new ExtractTextPlugin({
-      filename: '[name].css',
-      allChunks: true,
+    new MiniCssExtractPlugin({
+      filename: '[name]_[contenthash].css',
     }),
   ],
   devtool: 'source-map',
