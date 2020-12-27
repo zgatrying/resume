@@ -91,6 +91,7 @@ a {
     color: #000;
     background-color: #fff;
   }
+
   .title {
     width: 100%;
     border-bottom: 2px solid darken($color-green, 2%);
@@ -100,6 +101,7 @@ a {
     padding-bottom: 5px;
     margin-bottom: 5px;
   }
+
   .name,
   .job,
   .info,
@@ -110,8 +112,10 @@ a {
       text-align: center;
     }
   }
+
   .name {
     float: left;
+
     h1 {
       font-family: "Lucida Grande", "Hiragino Sans GB", "Hiragino Sans GB W3", $font-family;
       font-weight: 500;
@@ -121,6 +125,7 @@ a {
         line-height: 1.25;
         margin-top: 10px;
       }
+
       small {
         font-weight: 400;
         letter-spacing: 0;
@@ -135,12 +140,14 @@ a {
       }
     }
   }
+
   .job {
     float: right;
     text-align: right;
     @media screen and (max-width: 720px) {
       text-align: center;
     }
+
     h2 {
       display: inline-block;
       font-size: 24px;
@@ -151,25 +158,33 @@ a {
       }
     }
   }
+
   .info {
     float: left;
-    line-height: 22px;
+    line-height: 1.6;
+    font-size: 16px;
   }
+
   .contact {
     float: right;
+    line-height: 1.6;
+    font-size: 16px;
     text-align: right;
     padding-right: 5px;
+
     ul {
       margin: 8px 0 4px;
       @media screen and (max-width: 720px) {
         text-align: center;
         margin: 16px 0 0;
       }
+
       & > li {
         height: 22px;
         @media screen and (max-width: 720px) {
           display: inline-block;
         }
+
         & > a {
           color: #fff;
           @media print {
@@ -178,14 +193,17 @@ a {
           font-family: "Lucida Grande", "Hiragino Sans GB", "Hiragino Sans GB W3", $font-family;
           font-size: 14px;
           line-height: 22px;
+
           &:hover {
             color: #e8e8e8;
           }
+
           .contact-link {
             @media screen and (max-width: 720px) {
               display: none;
             }
           }
+
           .iconfont {
             fill: #fff;
             vertical-align: text-top;
@@ -207,6 +225,7 @@ a {
   @media screen and (max-width: 720px) {
     padding: 20px 20px 50px;
   }
+
   .content-left,
   .content-right {
     width: 50%;
@@ -214,24 +233,30 @@ a {
       width: 100%;
     }
   }
+
   .content-left {
     float: left;
   }
+
   .content-right {
     float: right;
   }
+
   section {
     overflow: hidden;
     padding: 10px 15px;
   }
+
   .section-hd {
     position: relative;
     height: 32px;
     margin: 10px auto 5px;
     overflow: hidden;
   }
+
   .section-bd {
     overflow: hidden;
+
     ul {
       li {
         margin-top: 8px;
@@ -243,6 +268,7 @@ a {
       margin-bottom: 20px;
     }
   }
+
   .section-title-l,
   .section-title-r {
     position: absolute;
@@ -253,12 +279,15 @@ a {
     vertical-align: middle;
     border-top: 1px solid #ededed;
   }
+
   .section-title-l {
     left: 0;
   }
+
   .section-title-r {
     right: 0;
   }
+
   .section-title {
     position: relative;
     z-index: 1;
@@ -272,9 +301,11 @@ a {
     text-align: center;
     background-color: #eee;
   }
+
   .section-list {
     padding: 10px 0 5px;
   }
+
   .item-hd {
     position: relative;
     padding: 10px 0 5px;
@@ -282,6 +313,7 @@ a {
     overflow: hidden;
     font-weight: 500;
     min-height: 30px;
+
     .item-time {
       display: inline-block;
       float: left;
@@ -291,25 +323,31 @@ a {
         margin-bottom: 5px;
       }
     }
+
     .item-more {
       position: absolute;
       top: 10px;
       right: 0;
     }
+
     .item-name {
       float: left;
     }
   }
+
   .item-bd {
     margin-bottom: 5px;
   }
+
   .item-des {
     margin-bottom: 16px;
   }
+
   .section-content {
     text-align: justify;
     word-break: break-all;
     line-height: 22px;
+
     em {
       display: inline-block;
       font-family: Menlo, $font-family;
@@ -321,6 +359,7 @@ a {
       padding: 0 3px;
       background-color: #f7f7f7;
     }
+
     strong {
       font-family: $font-family;
       font-size: 12px;
@@ -334,6 +373,7 @@ a {
       background-color: #f6f6f6;
     }
   }
+
   .practice {
     .item-time {
       width: 100%;
@@ -351,6 +391,7 @@ a {
   font-size: 14px;
   line-height: 18px;
   text-align: center;
+
   &:hover {
     color: #fff;
     background-color: $color-green;
@@ -371,5 +412,24 @@ a {
 
   @media print {
     display: none;
+  }
+}
+
+.skill {
+  width: 100%;
+  padding: 0 !important;
+}
+
+.link-icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  right: 0;
+  top: 10px;
+
+  svg {
+    width: 100%;
+    height: 100%;
   }
 }

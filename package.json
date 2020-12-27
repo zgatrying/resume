@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev": "webpack-dev-server --open --hot",
+    "dev": "webpack-dev-server --open",
     "build": "NODE_ENV=production webpack --config webpack-dist.config.js -p"
   },
   "devDependencies": {
